@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de privacidad — StoneCircle</title>
+  <meta name="description" content="Qué guardan en tu PC las aplicaciones para Windows MUZ y YUMO de StoneCircle y cuándo envían datos a otros servicios.">
+  <meta name="theme-color" content="#fbf7f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#17130f" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://nameofseokwonhong.github.io/stonecircle/es/privacy.html">
+  <link rel="alternate" hreflang="ko" href="https://nameofseokwonhong.github.io/stonecircle/privacy.html">
+  <link rel="alternate" hreflang="en" href="https://nameofseokwonhong.github.io/stonecircle/en/privacy.html">
+  <link rel="alternate" hreflang="es" href="https://nameofseokwonhong.github.io/stonecircle/es/privacy.html">
+  <link rel="alternate" hreflang="x-default" href="https://nameofseokwonhong.github.io/stonecircle/en/privacy.html">
+  <link rel="icon" href="../assets/img/muz-logo.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+  <!-- Traducción de ../privacy.html (coreano). Mantener los tres idiomas sincronizados. -->
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Inicio de StoneCircle">
+        <span class="brand-mark" aria-hidden="true"></span>
+        StoneCircle
+      </a>
+      <nav class="nav-links" aria-label="Menú principal">
+        <a href="./#muz">MUZ</a>
+        <a href="./#yumo">YUMO</a>
+      </nav>
+      <nav class="lang" aria-label="Idioma">
+        <a href="../privacy.html" hreflang="ko" lang="ko">KO</a>
+        <a href="../en/privacy.html" hreflang="en" lang="en">EN</a>
+        <a href="privacy.html" hreflang="es" lang="es" aria-current="true">ES</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="doc">
+    <span class="eyebrow">MUZ · YUMO</span>
+    <h1>Política de privacidad</h1>
+    <p class="muted">En vigor desde el 26 de noviembre de 2026</p>
+
+    <p>
+      Esta política explica qué guardan en tu PC las aplicaciones para Windows <strong>MUZ</strong> (All-in-One Multimedia Studio) y
+      <strong>YUMO</strong> (notas adhesivas + asistente de IA), distribuidas por StoneCircle, y cuándo envían información a otros servicios.
+    </p>
+
+    <div class="notice">
+      En resumen: ninguna de las dos apps requiere cuenta y el desarrollador no tiene servidores. Los datos se guardan en tu PC
+      y solo salen de él mediante funciones que tú conectas o ejecutas (IA, nube, subidas, búsqueda web y similares).
+      No incluyen herramientas de analítica ni de seguimiento.
+    </div>
+
+    <h2>1. Información que no recopilamos</h2>
+    <ul>
+      <li>StoneCircle no recibe tu nombre, datos de contacto ni información de cuenta, y no hay registro.</li>
+      <li>No se envían al desarrollador el historial de uso, identificadores publicitarios ni la ubicación.</li>
+      <li>Para los atajos globales, las apps detectan las pulsaciones de teclas solo para comprobar las combinaciones asignadas; las teclas que escribes nunca se guardan ni se envían.</li>
+    </ul>
+
+    <h2>2. Información que se guarda en tu PC</h2>
+    <h3>MUZ</h3>
+    <ul>
+      <li>Biblioteca y listas de reproducción, volumen y pistas recientes, configuración de pantalla y estado de conexión a la nube: una base de datos local en <code>%LOCALAPPDATA%\MUZ</code></li>
+      <li>Grabaciones y capturas de pantalla, y vídeos comprimidos o editados: tus carpetas Vídeos e Imágenes de Windows</li>
+      <li>Las conversaciones con la IA no se guardan; desaparecen al empezar un chat nuevo o al cerrar la app.</li>
+    </ul>
+    <h3>YUMO</h3>
+    <ul>
+      <li>Notas, programaciones, historial de chat, Workflows, lista de orígenes de datos, índices de búsqueda y configuración: una base de datos local en la carpeta de datos de YUMO (por defecto <code>%LOCALAPPDATA%\Yumo</code>; se puede cambiar en Configuración)</li>
+      <li>Caché cifrada del texto de los documentos de la nube registrados, cookies y caché del navegador integrado, grabaciones de reuniones (WAV) y transcripciones, y modelos Whisper descargados: la misma carpeta de datos</li>
+    </ul>
+    <h3>Ambas apps</h3>
+    <ul>
+      <li>Las claves de API de servicios de IA y los tokens de inicio de sesión en la nube se cifran con la protección de datos de Windows (DPAPI), de modo que solo el mismo usuario de Windows en el mismo PC puede descifrarlos.</li>
+      <li>Al desinstalar la app o borrar su carpeta de datos se elimina esta información. Si elegiste una carpeta de datos personalizada en YUMO, esa carpeta no se borra automáticamente al desinstalar.</li>
+    </ul>
+
+    <h2>3. Cuándo se envía información a otros servicios</h2>
+    <p>Cada uno de los envíos siguientes ocurre solo cuando configuras o ejecutas la función, y se rige también por la política de privacidad de ese servicio.</p>
+
+    <h3>Servicios de IA (MUZ y YUMO)</h3>
+    <ul>
+      <li>Tus solicitudes y el contenido necesario para responderlas se envían al proveedor de IA que conectes (OpenAI, Azure OpenAI, Anthropic Claude, Google Gemini o tu propio servidor Ollama).</li>
+      <li>YUMO: tu pregunta con fragmentos relevantes de notas, documentos y páginas web; el material de los Workflows; el texto transcrito al crear actas con IA; y la descripción y los ejemplos al generar un patrón de AI Paste.</li>
+      <li>Si activas la búsqueda vectorial de YUMO, se envían fragmentos de texto de notas y documentos y tus consultas al proveedor de embeddings que configures.</li>
+      <li>MUZ: las líneas de subtítulos al traducirlos; la imagen original y la zona pintada al editar imágenes con IA.</li>
+      <li>El servicio de IA puede cobrarte según sus propias tarifas.</li>
+    </ul>
+
+    <h3>Almacenamiento en la nube (MUZ y YUMO)</h3>
+    <ul>
+      <li>Las apps se comunican con las cuentas de OneDrive y Google Drive en las que inicies sesión. MUZ explora, reproduce, descarga, sube y elimina archivos; YUMO solo lista y lee los archivos que registres.</li>
+    </ul>
+
+    <h3>Solo MUZ</h3>
+    <ul>
+      <li><strong>Subida a YouTube</strong>: el vídeo que elijas y su título, descripción y datos similares se suben a YouTube con tu cuenta de Google.</li>
+      <li><strong>Herramientas de descarga por enlace</strong>: al usarlas por primera vez, se descargan desde sus versiones oficiales en GitHub, y la app accede a la dirección que introduzcas. Úsalas solo con contenido que te pertenezca o que se permita descargar.</li>
+      <li><strong>Informe de QA (F1)</strong>: al pulsar el botón de envío, el título, el texto y las imágenes adjuntas que escribiste se envían como incidencia de GitHub junto con la versión de MUZ, la versión de Windows, el modelo de CPU y la RAM instalada. No se añaden automáticamente el nombre de usuario, el nombre del equipo, números de serie ni registros. Los informes enviados pueden ser públicos, así que no incluyas datos personales.</li>
+      <li>La grabación de pantalla, la vista previa de la cámara y la grabación del micrófono se procesan solo en tu PC y se guardan como archivos.</li>
+    </ul>
+
+    <h3>Solo YUMO</h3>
+    <ul>
+      <li><strong>Búsqueda web y Workflows</strong>: el navegador integrado (Microsoft Edge WebView2) accede a la búsqueda de Bing y a páginas web públicas que indiques o que encuentre la IA. Las cookies de los sitios en los que inicies sesión en el navegador integrado se comparten con el navegador de búsqueda oculto.</li>
+      <li><strong>Actas de reunión</strong>: el audio grabado nunca se envía; se transcribe en tu PC. La red solo se usa para descargar los modelos Whisper la primera vez (desde Hugging Face).</li>
+      <li><strong>AI Paste</strong>: lo que pegas y las direcciones del navegador se revisan solo en tu PC y nunca se envían.</li>
+    </ul>
+
+    <h3>Microsoft Store</h3>
+    <ul>
+      <li>Las apps instaladas desde Store comprueban su licencia al iniciarse mediante la función de licencias de Windows Store. De ello se encarga Microsoft.</li>
+    </ul>
+
+    <h2>4. Tus opciones</h2>
+    <ul>
+      <li>Puedes desconectar los servicios de IA y nube o borrar las claves en Configuración en cualquier momento.</li>
+      <li>En YUMO, AI Paste, la búsqueda vectorial y el inicio al iniciar sesión en Windows están desactivados por defecto.</li>
+      <li>Puedes borrar el historial de chat, las notas y las grabaciones en la app; al borrar la carpeta de datos se elimina todo.</li>
+    </ul>
+
+    <h2>5. Privacidad de menores</h2>
+    <p>Ninguna de las dos apps recopila información personal de menores.</p>
+
+    <h2>6. Cambios y contacto</h2>
+    <p>
+      Si los cambios en las apps afectan al tratamiento de la información, actualizaremos esta política y su fecha de entrada en vigor.
+      Para consultas, utiliza el contacto de soporte que aparece en la página de Microsoft Store de
+      <a href="https://apps.microsoft.com/detail/9NM8542VXQTM" target="_blank" rel="noopener">MUZ</a> o
+      <a href="https://apps.microsoft.com/detail/9N14128PJ0QF" target="_blank" rel="noopener">YUMO</a>.
+    </p>
+    <p class="muted">Si esta traducción difiere del original en coreano, prevalece la versión coreana.</p>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>© <span id="year">2026</span> StoneCircle</div>
+      <div><a href="./">Inicio</a></div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js"></script>
+</body>
+</html>

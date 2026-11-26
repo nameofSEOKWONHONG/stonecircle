@@ -221,6 +221,43 @@ p {
   }
 }
 
+/* 언어 전환: 현재 언어는 aria-current로 표시 */
+.lang {
+  display: flex;
+  gap: 2px;
+  padding-left: 8px;
+  border-left: 1px solid var(--line);
+}
+
+.lang a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+
+.lang a:hover {
+  color: var(--ink);
+  background: var(--bg-alt);
+}
+
+.lang a[aria-current="true"] {
+  color: var(--ink);
+  background: var(--bg-alt);
+}
+
+@media (max-width: 420px) {
+  .nav .wrap {
+    gap: 8px;
+  }
+
+  .nav-links a {
+    padding: 8px;
+  }
+}
+
 /* ---------- 버튼 ---------- */
 
 .btn {
