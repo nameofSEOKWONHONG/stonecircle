@@ -27,6 +27,38 @@
     });
   }
 
+  // 테마 전환: 기본은 다크(앱 화면과 같음). 라이트를 고르면 브라우저에 기억한다.
+  // 첫 화면 깜박임을 막기 위해 저장값은 각 페이지 <head>의 인라인 스크립트가 먼저 적용한다.
+  var root = document.documentElement;
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  function applyTheme(light) {
+    if (light) {
+      root.setAttribute("data-theme", "light");
+    } else {
+      root.removeAttribute("data-theme");
+    }
+    if (themeMeta) {
+      themeMeta.setAttribute("content", light ? "#f1f4f8" : "#191d24");
+    }
+  }
+  applyTheme(root.getAttribute("data-theme") === "light");
+  var themeButton = document.getElementById("theme-toggle");
+  if (themeButton) {
+    themeButton.addEventListener("click", function () {
+      var light = root.getAttribute("data-theme") !== "light";
+      applyTheme(light);
+      try {
+        if (light) {
+          localStorage.setItem("sc-theme", "light");
+        } else {
+          localStorage.removeItem("sc-theme");
+        }
+      } catch (e) {
+        // 저장할 수 없어도 현재 페이지에는 적용된다.
+      }
+    });
+  }
+
   // 푸터 연도
   var year = document.getElementById("year");
   if (year) {

@@ -1,70 +1,60 @@
 /* StoneCircle 소개 사이트 공통 스타일 — 빌드 도구 없이 그대로 배포한다. */
 
+/* 색상은 YUMO 앱 테마(yumo/Styles/Theme.axaml)의 토큰을 따른다. 기본은 다크, data-theme="light"면 라이트. */
 :root {
-  --bg: #fbf7f1;
-  --bg-alt: #f4ede3;
-  --card: #ffffff;
-  --ink: #2b2420;
-  --muted: #6e625a;
-  --line: #e8dfd3;
+  --bg: #191d24;          /* BgApp */
+  --bg-alt: #1d222b;      /* BgSurface */
+  --card: #222831;        /* BgCard */
+  --input: #1c222b;       /* BgInput */
+  --button: #2a323e;      /* BgButton */
+  --button-hover: #343f4e;
+  --ink: #e9edf5;         /* TextPrimary */
+  --muted: #a0aaba;       /* TextMuted */
+  --line: #343d49;        /* BorderSubtle */
+  --accent: #b3c7ff;      /* Accent */
+  --accent-hover: #ccd9ff;
+  --on-accent: #182645;   /* OnAccent */
+  --accent-soft: rgba(179, 199, 255, 0.14); /* BgNavSelected */
+  --bubble: #303b4d;      /* ChatUserBubble */
 
-  --muz: #7a4a2a;
-  --muz-soft: #f1e4d8;
-  --muz-accent: #c7864a;
+  --muz: var(--accent);
+  --muz-soft: var(--accent-soft);
+  --muz-accent: var(--accent);
+  --yumo: var(--accent);
+  --yumo-soft: var(--accent-soft);
+  --link: var(--accent);
 
-  --yumo: #c8453c;
-  --yumo-soft: #fbeae6;
-  --memo: #fde68a;
-  --memo-ink: #3b3221;
-  --link: #3654c8;
+  --memo: #fff3a6;        /* MemoPaper */
+  --memo-ink: #3d3421;    /* MemoInk */
+  --memo-head: #f4df7b;   /* MemoHeader */
+  --memo-highlight: #3654c8;
 
-  --radius: 18px;
-  --shadow: 0 1px 2px rgba(43, 36, 32, 0.06), 0 12px 32px rgba(43, 36, 32, 0.08);
+  --radius: 16px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.35);
   --max: 1120px;
 
-  color-scheme: light;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #17130f;
-    --bg-alt: #1d1813;
-    --card: #231d17;
-    --ink: #f3ece4;
-    --muted: #b5a89b;
-    --line: #3a3029;
-
-    --muz: #e0a978;
-    --muz-soft: #34261b;
-    --muz-accent: #e0a978;
-
-    --yumo: #f08a80;
-    --yumo-soft: #3a211e;
-    --link: #8ea2f0;
-
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.35);
-    color-scheme: dark;
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg: #17130f;
-  --bg-alt: #1d1813;
-  --card: #231d17;
-  --ink: #f3ece4;
-  --muted: #b5a89b;
-  --line: #3a3029;
-
-  --muz: #e0a978;
-  --muz-soft: #34261b;
-  --muz-accent: #e0a978;
-
-  --yumo: #f08a80;
-  --yumo-soft: #3a211e;
-  --link: #8ea2f0;
-
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.35);
   color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #f1f4f8;
+  --bg-alt: #e7ebf1;
+  --card: #ffffff;
+  --input: #ffffff;
+  --button: #e2e7ef;
+  --button-hover: #d5dce7;
+  --ink: #1a2230;
+  --muted: #525d70;
+  --line: #d3dae4;
+  --accent: #3654c8;
+  --accent-hover: #2c46ad;
+  --on-accent: #ffffff;
+  --accent-soft: rgba(54, 84, 200, 0.1);
+  --bubble: #dfe7f4;
+
+  --shadow: 0 1px 2px rgba(26, 34, 48, 0.06), 0 12px 32px rgba(26, 34, 48, 0.08);
+
+  color-scheme: light;
 }
 
 * {
@@ -80,7 +70,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: "Pretendard Variable", Pretendard, "Segoe UI", "Malgun Gothic", system-ui, sans-serif;
+  font-family: "Segoe UI Variable Text", "Segoe UI", "Malgun Gothic", system-ui, sans-serif;
   font-size: 17px;
   line-height: 1.65;
   word-break: keep-all;
@@ -221,6 +211,45 @@ p {
   }
 }
 
+/* 테마 전환 버튼 */
+.theme-btn {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--button);
+  color: var(--ink);
+  cursor: pointer;
+  flex: none;
+}
+
+.theme-btn:hover {
+  background: var(--button-hover);
+}
+
+.theme-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.theme-btn .sun {
+  display: none;
+}
+
+:root[data-theme="light"] .theme-btn .sun {
+  display: block;
+}
+
+:root[data-theme="light"] .theme-btn .moon {
+  display: none;
+}
+
 /* 언어 전환: 현재 언어는 aria-current로 표시 */
 .lang {
   display: flex;
@@ -264,8 +293,8 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 20px;
-  border-radius: 999px;
+  padding: 11px 18px;
+  border-radius: 8px;
   font-weight: 700;
   font-size: 0.98rem;
   text-decoration: none;
@@ -278,32 +307,25 @@ p {
   box-shadow: var(--shadow);
 }
 
-.btn-muz {
-  background: var(--muz);
-  color: #fff;
-}
-
+.btn-muz,
 .btn-yumo {
-  background: var(--yumo);
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
-:root[data-theme="dark"] .btn-muz,
-:root[data-theme="dark"] .btn-yumo {
-  color: #1a1410;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .btn-muz,
-  :root:not([data-theme="light"]) .btn-yumo {
-    color: #1a1410;
-  }
+.btn-muz:hover,
+.btn-yumo:hover {
+  background: var(--accent-hover);
 }
 
 .btn-ghost {
-  background: transparent;
+  background: var(--button);
   color: var(--ink);
   border-color: var(--line);
+}
+
+.btn-ghost:hover {
+  background: var(--button-hover);
 }
 
 .btn svg {
@@ -638,9 +660,9 @@ kbd {
   aspect-ratio: 16 / 8;
   border-radius: 10px;
   background:
-    radial-gradient(circle at 30% 40%, rgba(255, 200, 140, 0.55), transparent 55%),
-    radial-gradient(circle at 75% 65%, rgba(122, 74, 42, 0.7), transparent 60%),
-    linear-gradient(135deg, #3b2a1f, #120d0a);
+    radial-gradient(circle at 30% 40%, rgba(179, 199, 255, 0.45), transparent 55%),
+    radial-gradient(circle at 75% 65%, rgba(54, 84, 200, 0.6), transparent 60%),
+    linear-gradient(135deg, #2a323e, #0f1217);
   position: relative;
 }
 
@@ -813,8 +835,8 @@ kbd {
   align-items: center;
   padding: 6px 10px;
   font-size: 11px;
-  color: rgba(59, 50, 33, 0.65);
-  background: rgba(0, 0, 0, 0.04);
+  color: rgba(61, 52, 33, 0.7);
+  background: var(--memo-head);
 }
 
 .sticky .body {
@@ -839,7 +861,7 @@ kbd {
 }
 
 .sticky.s2 .alert {
-  background: #3654c8;
+  background: var(--memo-highlight);
   color: #fff;
   font-size: 11px;
   font-weight: 700;
@@ -865,7 +887,7 @@ kbd {
 
 .bubble-user {
   align-self: flex-end;
-  background: var(--yumo-soft);
+  background: var(--bubble);
   color: var(--ink);
   padding: 8px 12px;
   border-radius: 12px 12px 4px 12px;
@@ -957,7 +979,7 @@ kbd {
   padding: 14px;
   border-radius: 12px;
   border: 1px solid var(--line);
-  background: var(--bg);
+  background: var(--input);
   color: var(--ink);
   white-space: pre-wrap;
   resize: vertical;
@@ -1014,8 +1036,8 @@ kbd {
 }
 
 .toggle button[aria-pressed="true"] {
-  background: var(--yumo);
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
 /* ---------- 회의록 흐름 ---------- */
@@ -1052,8 +1074,8 @@ kbd {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: var(--yumo);
-  color: #fff;
+  background: var(--accent);
+  color: var(--on-accent);
   font-weight: 800;
   font-size: 0.85rem;
   margin-bottom: 8px;
