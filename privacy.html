@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>개인정보 처리방침 — StoneCircle</title>
+  <meta name="description" content="StoneCircle의 Windows 앱 MUZ와 YUMO가 어떤 정보를 어디에 저장하고 어디로 보내는지 설명합니다.">
+  <meta name="theme-color" content="#fbf7f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#17130f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/img/muz-logo.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <!--
+    작성 기준: muz/QA.md, yumo/packaging/msix/STORE_LISTING.md "개인정보 고지에 담을 내용",
+    각 앱 AGENTS.md의 데이터 흐름(2026-11-26 소스 기준). 앱 동작이 바뀌면 이 문서도 함께 고친다.
+    게시 전 사업자 정보·문의 창구·시행일과 법률 검토를 확인한다.
+  -->
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="StoneCircle 홈">
+        <span class="brand-mark" aria-hidden="true"></span>
+        StoneCircle
+      </a>
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="index.html#muz">MUZ</a>
+        <a href="index.html#yumo">YUMO</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="doc">
+    <span class="eyebrow">MUZ · YUMO</span>
+    <h1>개인정보 처리방침</h1>
+    <p class="muted">시행일 2026년 11월 26일</p>
+
+    <p>
+      이 문서는 StoneCircle이 배포하는 Windows 앱 <strong>MUZ</strong>(All-in-One Multimedia Studio)와
+      <strong>YUMO</strong>(포스트잇 메모 + AI 비서)가 어떤 정보를 PC에 저장하고, 어떤 경우에 외부 서비스로 보내는지 설명합니다.
+    </p>
+
+    <div class="notice">
+      요약: 두 앱은 회원 가입이 없고 개발자 서버를 운영하지 않습니다. 데이터는 사용자의 PC에 저장되며,
+      외부 전송은 사용자가 직접 연결하거나 실행한 기능(AI, 클라우드, 업로드, 웹 검색 등)에서만 일어납니다.
+      사용 통계나 분석 도구를 넣지 않았습니다.
+    </div>
+
+    <h2>1. 수집하지 않는 정보</h2>
+    <ul>
+      <li>StoneCircle은 이름, 연락처, 계정 같은 정보를 받지 않으며 별도 회원 가입이 없습니다.</li>
+      <li>앱 사용 기록, 광고 식별자, 위치 정보를 개발자에게 보내지 않습니다.</li>
+      <li>전역 단축키 처리를 위해 키 입력을 감지하지만, 지정된 키 조합인지 판단하는 데만 쓰며 입력한 키를 저장하거나 전송하지 않습니다.</li>
+    </ul>
+
+    <h2>2. PC에 저장하는 정보</h2>
+    <h3>MUZ</h3>
+    <ul>
+      <li>라이브러리·플레이리스트 목록, 볼륨과 최근 곡, 화면 설정, 클라우드 연결 상태: <code>%LOCALAPPDATA%\MUZ</code>의 로컬 데이터베이스</li>
+      <li>화면 녹화·캡처·압축·편집 결과: Windows의 동영상·사진 폴더</li>
+      <li>AI 대화는 앱을 종료하거나 새 대화를 시작하면 사라지며 저장하지 않습니다.</li>
+    </ul>
+    <h3>YUMO</h3>
+    <ul>
+      <li>메모, 일정, 대화 기록, Workflow, 데이터 소스 목록, 검색용 인덱스, 설정: YUMO 데이터 폴더(기본 <code>%LOCALAPPDATA%\Yumo</code>, 설정에서 변경 가능)의 로컬 데이터베이스</li>
+      <li>등록한 클라우드 문서에서 추출한 본문 캐시(암호화), 앱 내 브라우저의 쿠키·캐시, 회의 녹음(WAV)과 전사본, 내려받은 Whisper 모델: 같은 데이터 폴더</li>
+    </ul>
+    <h3>공통</h3>
+    <ul>
+      <li>AI 서비스 API 키와 클라우드 로그인 토큰은 Windows 데이터 보호(DPAPI)로 암호화하여, 같은 PC의 같은 Windows 사용자만 풀 수 있습니다.</li>
+      <li>앱을 제거하거나 데이터 폴더를 지우면 위 정보가 삭제됩니다. YUMO에서 데이터 폴더를 직접 지정한 경우 그 폴더는 앱 제거 시 자동으로 지워지지 않습니다.</li>
+    </ul>
+
+    <h2>3. 외부로 보내는 경우</h2>
+    <p>아래 전송은 모두 사용자가 해당 기능을 설정하거나 실행했을 때만 일어나며, 각 서비스의 개인정보 처리방침을 함께 따릅니다.</p>
+
+    <h3>AI 서비스(MUZ·YUMO)</h3>
+    <ul>
+      <li>사용자가 연결한 AI 제공자(OpenAI, Azure OpenAI, Anthropic Claude, Google Gemini 또는 사용자의 Ollama 서버)로 질문과 응답에 필요한 내용을 보냅니다.</li>
+      <li>YUMO: 질문과 함께 관련 메모·문서·웹 페이지 발췌, Workflow 자료, AI 회의록을 만들 때의 전사 텍스트, AI Paste 패턴을 만들 때의 설명과 예시.</li>
+      <li>YUMO 벡터 검색을 켜면 메모·문서 본문 조각과 검색어를 사용자가 설정한 임베딩 제공자로 보냅니다.</li>
+      <li>MUZ: 자막 번역 시 자막 문장, AI 이미지 편집 시 원본 이미지와 칠한 영역.</li>
+      <li>이용 요금은 해당 AI 서비스의 기준에 따라 사용자에게 발생할 수 있습니다.</li>
+    </ul>
+
+    <h3>클라우드 저장소(MUZ·YUMO)</h3>
+    <ul>
+      <li>사용자가 로그인한 OneDrive·Google Drive와 통신합니다. MUZ는 파일 탐색·재생·다운로드·업로드·삭제를, YUMO는 등록한 파일의 목록 조회와 읽기만 합니다.</li>
+    </ul>
+
+    <h3>MUZ에서만</h3>
+    <ul>
+      <li><strong>YouTube 업로드</strong>: 사용자가 선택한 동영상과 제목·설명 등을 사용자의 Google 계정으로 YouTube에 올립니다.</li>
+      <li><strong>링크 다운로드 도구</strong>: 처음 사용할 때 필요한 도구를 공식 GitHub 릴리스에서 내려받고, 사용자가 입력한 주소에 접속합니다. 본인 소유이거나 다운로드가 허용된 콘텐츠에만 사용하세요.</li>
+      <li><strong>QA 등록(F1)</strong>: 사용자가 등록 버튼을 누르면 작성한 제목·본문·첨부 이미지와 함께 MUZ 버전, Windows 버전, CPU 모델, 설치된 RAM 용량을 GitHub 이슈로 보냅니다. 사용자 이름·장치 이름·일련번호·로그는 자동으로 넣지 않습니다. 등록한 내용은 공개될 수 있으므로 개인정보를 적지 마세요.</li>
+      <li>화면 녹화, 카메라 프리뷰, 마이크 녹음은 PC 안에서만 처리하고 파일로 저장합니다.</li>
+    </ul>
+
+    <h3>YUMO에서만</h3>
+    <ul>
+      <li><strong>웹 검색·Workflow</strong>: 앱 내 브라우저(Microsoft Edge WebView2)가 Bing 검색과 사용자가 지정하거나 AI가 찾은 공개 웹 페이지에 접속합니다. 앱 내 브라우저에서 로그인한 사이트의 쿠키는 숨은 검색 브라우저와 공유됩니다.</li>
+      <li><strong>회의록</strong>: 녹음 오디오는 외부로 보내지 않고 PC에서 전사합니다. 네트워크는 Whisper 모델 파일을 처음 내려받을 때(Hugging Face)만 사용합니다.</li>
+      <li><strong>AI Paste</strong>: 붙여넣는 내용과 브라우저 주소는 PC 안에서만 검사하며 외부로 보내지 않습니다.</li>
+    </ul>
+
+    <h3>Microsoft Store</h3>
+    <ul>
+      <li>Store에서 설치한 앱은 시작할 때 Windows의 Store 라이선스 기능으로 사용권을 확인합니다. 이 과정은 Microsoft가 처리합니다.</li>
+    </ul>
+
+    <h2>4. 사용자의 선택</h2>
+    <ul>
+      <li>AI·클라우드 연결은 언제든 설정에서 해제하거나 키를 지울 수 있습니다.</li>
+      <li>YUMO의 AI Paste, 벡터 검색, Windows 로그인 시 시작은 기본으로 꺼져 있습니다.</li>
+      <li>대화 기록·메모·녹음은 앱에서 삭제할 수 있으며, 데이터 폴더를 지우면 모두 삭제됩니다.</li>
+    </ul>
+
+    <h2>5. 아동의 개인정보</h2>
+    <p>두 앱은 아동을 대상으로 개인정보를 수집하지 않습니다.</p>
+
+    <h2>6. 변경과 문의</h2>
+    <p>
+      앱 기능이 바뀌어 정보 처리 방식이 달라지면 이 문서를 갱신하고 시행일을 고칩니다.
+      문의는 Microsoft Store의 <a href="https://apps.microsoft.com/detail/9NM8542VXQTM" target="_blank" rel="noopener">MUZ</a> 또는
+      <a href="https://apps.microsoft.com/detail/9N14128PJ0QF" target="_blank" rel="noopener">YUMO</a> 앱 페이지에 안내된 지원 창구를 이용해 주세요.
+    </p>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>© <span id="year">2026</span> StoneCircle</div>
+      <div><a href="index.html">홈으로</a></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
